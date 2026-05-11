@@ -1,33 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <!-- Python chalane ke liye ye library load hona zaroori hai -->
-    <script type="module" src="https://pyscript.net"></script>
-    <title>Pure Python Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+
+    <!-- PyScript -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    <style>
+        body{
+            font-family: Arial;
+            background-color: #f2f2f2;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .login-box{
+            width: 350px;
+            margin: auto;
+            background: skyblue;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        input{
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        button{
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #output{
+            margin-top: 20px;
+            font-size: 22px;
+            color: green;
+        }
+    </style>
 </head>
 <body>
-    <div style="text-align: center; margin-top: 50px;">
-        <h1>Python Language Result:</h1>
-        <div id="output">Loading Python...</div>
+
+    <div class="login-box">
+
+        <h2>User Login</h2>
+
+        <input type="text" id="username" placeholder="Enter Username">
+
+        <input type="password" id="password" placeholder="Enter Password">
+
+        <br><br>
+
+        <button onclick="login()">Login</button>
+
+        <div id="output"></div>
+
     </div>
 
-    <script type="py">
-# YEH PURE PYTHON HAI
-from pyscript import display
+    <script>
+        function login(){
 
-s = "malayalam"
-i, j = 0, len(s)-1
-is_pali = True
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
 
-while i < j:
-    if s[i] != s[j]:
-        is_pali = False
-        break
-    i += 1
-    j -= 1
-
-msg = f"Yes, {s} is a palindrome" if is_pali else "No"
-display(msg, target="output")
+            if(username === "" || password === ""){
+                document.getElementById("output").innerHTML =
+                "Please fill all fields";
+            }
+            else{
+                document.getElementById("output").innerHTML =
+                "You Login Successfully ✅";
+            }
+        }
     </script>
+
 </body>
 </html>
