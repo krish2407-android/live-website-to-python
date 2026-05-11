@@ -2,19 +2,21 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Brython Engine (Lightweight Python for Browser) -->
+    <script type="text/javascript" src="https://jsdelivr.net"></script>
+    <script type="text/javascript" src="https://jsdelivr.net"></script>
     <title>Palindrome Checker</title>
-    <!-- Ye links sabse stable hain -->
-    <link rel="stylesheet" href="https://pyscript.net" />
-    <script defer src="https://pyscript.net"></script>
 </head>
-<body>
+<body onload="brython()">
     <div style="text-align: center; margin-top: 50px; font-family: sans-serif;">
         <h1>Python Result:</h1>
-        <div id="result" style="font-size: 24px; color: blue;">Loading Python...</div>
+        <!-- Yahan output dikhega -->
+        <h2 id="output" style="color: blue;">Processing...</h2>
     </div>
 
-    <py-script>
+    <script type="text/python">
+from browser import document
+
 s = "malayalam"
 i, j = 0, len(s) - 1
 is_palindrome = True
@@ -27,12 +29,12 @@ while i < j:
     j -= 1
 
 if is_palindrome:
-    output = f"Yes, '{s}' is a palindrome!"
+    result = f"Yes, '{s}' is a palindrome!"
 else:
-    output = f"No, '{s}' is not a palindrome."
+    result = f"No, '{s}' is not a palindrome."
 
-# Purana aur sabse stable tarika output dikhane ka
-pyscript.write("result", output)
-    </py-script>
+# Screen par result dikhane ke liye
+document["output"].text = result
+    </script>
 </body>
 </html>
