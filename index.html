@@ -2,19 +2,18 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <script type="module" src="https://pyscript.net"></script>
+    <!-- Nayi aur stable PyScript link -->
+    <link rel="stylesheet" href="https://pyscript.net" />
+    <script defer src="https://pyscript.net"></script>
     <title>Palindrome Checker</title>
-    <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f4f4f9; }
-        #output { padding: 20px; border-radius: 10px; background: white; shadow: 0 4px 6px rgba(0,0,0,0.1); font-size: 24px; color: #333; }
-    </style>
 </head>
 <body>
+    <div id="output" style="font-size: 24px; text-align: center; margin-top: 50px; font-family: sans-serif;">
+        Loading Python... please wait.
+    </div>
 
-    <div id="output">Loading Python...</div>
-
-    <script type="py">
-from pyscript import display
+    <py-script>
+from pyscript import Element
 
 s = "malayalam"
 i, j = 0, len(s) - 1
@@ -28,8 +27,9 @@ while i < j:
     j -= 1
 
 result = f"Yes, '{s}' is a palindrome!" if is_palindrome else f"No, '{s}' is not a palindrome."
-display(result, target="output", append=False)
-    </script>
 
+# Output ko screen par dikhane ka naya tarika
+Element("output").write(result)
+    </py-script>
 </body>
 </html>
