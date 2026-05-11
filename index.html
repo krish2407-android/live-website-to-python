@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Palindrome Checker</title>
+    <!-- Python chalane ke liye ye library load hona zaroori hai -->
+    <script type="module" src="https://pyscript.net"></script>
+    <title>Pure Python Page</title>
 </head>
-<body style="text-align: center; font-family: sans-serif; margin-top: 50px;">
+<body>
+    <div style="text-align: center; margin-top: 50px;">
+        <h1>Python Language Result:</h1>
+        <div id="output">Loading Python...</div>
+    </div>
 
-    <h1>Palindrome Result:</h1>
-    <h2 id="output" style="color: green;">Checking...</h2>
+    <script type="py">
+# YEH PURE PYTHON HAI
+from pyscript import display
 
-    <script>
-        
-        let s = "krish";
-        let i = 0;
-        let j = s.length - 1;
-        let is_palindrome = true;
+s = "malayalam"
+i, j = 0, len(s)-1
+is_pali = True
 
-        while (i < j) {
-            if (s[i] !== s[j]) {
-                is_palindrome = false;
-                break;
-            }
-            i++;
-            j--;
-        }
+while i < j:
+    if s[i] != s[j]:
+        is_pali = False
+        break
+    i += 1
+    j -= 1
 
-        let result = is_palindrome 
-            ? `Yes, '${s}' is a palindrome!` 
-            : `No, '${s}' is not a palindrome.`;
-
-        
-        document.getElementById("output").innerText = result;
+msg = f"Yes, {s} is a palindrome" if is_pali else "No"
+display(msg, target="output")
     </script>
 </body>
 </html>
