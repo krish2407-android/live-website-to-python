@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="module" src="https://pyscript.net"></script>
+    <title>Output Only</title>
+</head>
+<body>
+
+    <!-- Sirf output yahan dikhega -->
+    <div id="output" style="font-size: 24px; font-weight: bold; margin: 20px;"></div>
+
+    <py-script>
+        from pyscript import display
+
+        s = "malayalam"
+        i, j = 0, len(s) - 1
+        is_palindrome = True
+        
+        while i < j:
+            if s[i] != s[j]:
+                is_palindrome = False
+                break
+            i += 1
+            j -= 1
+        
+        result = f"Yes, '{s}' is a palindrome!" if is_palindrome else f"No, '{s}' is not a palindrome."
+        
+        # Ye line output ko div ke andar bhej degi
+        display(result, target="output")
+    </py-script>
+
+</body>
+</html>
