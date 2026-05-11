@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <script type="module" src="https://pyscript.net"></script>
-    <title>Output Only</title>
+    <title>Palindrome Checker</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f4f4f9; }
+        #output { padding: 20px; border-radius: 10px; background: white; shadow: 0 4px 6px rgba(0,0,0,0.1); font-size: 24px; color: #333; }
+    </style>
 </head>
 <body>
 
-    <!-- Sirf output yahan dikhega -->
-    <div id="output" style="font-size: 24px; font-weight: bold; margin: 20px;"></div>
+    <div id="output">Loading Python...</div>
 
-    <py-script>
-        from pyscript import display
+    <script type="py">
+from pyscript import display
 
-        s = "malayalam"
-        i, j = 0, len(s) - 1
-        is_palindrome = True
-        
-        while i < j:
-            if s[i] != s[j]:
-                is_palindrome = False
-                break
-            i += 1
-            j -= 1
-        
-        result = f"Yes, '{s}' is a palindrome!" if is_palindrome else f"No, '{s}' is not a palindrome."
-        
-        # Ye line output ko div ke andar bhej degi
-        display(result, target="output")
-    </py-script>
+s = "malayalam"
+i, j = 0, len(s) - 1
+is_palindrome = True
+
+while i < j:
+    if s[i] != s[j]:
+        is_palindrome = False
+        break
+    i += 1
+    j -= 1
+
+result = f"Yes, '{s}' is a palindrome!" if is_palindrome else f"No, '{s}' is not a palindrome."
+display(result, target="output", append=False)
+    </script>
 
 </body>
 </html>
